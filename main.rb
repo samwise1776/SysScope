@@ -333,6 +333,11 @@ Gtk::IconTheme.get_for_display(Gdk::Display.default)
       detail: 'Total and available RAM',
       icon: 'drive-harddisk',
       type: 'System'
+    },
+    {
+      name: 'Terminal',
+      detail: 'Run terminal commands',
+      icon: 'utilities-terminal'
     }
   ]
 
