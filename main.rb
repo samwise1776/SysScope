@@ -2121,11 +2121,90 @@ signout_button.signal_connect('clicked') do
 end
 
 window.set_child(auth_page)
-window.present
+SysScopeExtraTabs.add(window)
+  window.present
 end
 
 unless $sysscope_hot_load
-  app = Gtk::Application.new('com.sysscope.app')
+  
+# SYSSCOPE_EXTRA_TABS_V1
+module SysScopeExtraTabs
+  module_function
+
+  TABS = {
+    "Processes" => "ps aux --sort=-%cpu | head -35",
+    "Storage" => "df -h; echo; lsblk",
+    "Network" => "ip -brief address; echo; ip route",
+    "Services" => "systemctl --user --no-pager --plain list-units --type=service",
+    "Logs" => "journalctl --user -n 60 --no-pager",
+    "Hardware" => "lscpu; echo; free -h",
+    "Environment" => "env | sort",
+    "GitHub" => "git remote -v; echo; git status -sb",
+    "Notifications" => "cat ~/.sysscope/notifications-missed.txt",
+    "About" => "printf 'SysScope v1.0.3\\nSystem monitor and development environment\\n'"
+  }
+
+  def add(window)
+    root = window.child
+    return unless root.is_a?(Gtk::Box)
+
+    notebook = Gtk::Notebook.new
+    notebook.hexpand = true
+    notebook.vexpand = true
+    notebook.scrollable = true
+
+    TABS.each do |name, command|
+      page = Gtk::Box.new(:vertical, 8)
+      page.margin_top = 10
+      page.margin_bottom = 10
+      page.margin_start = 10
+      page.margin_end = 10
+
+      toolbar = Gtk::Box.new(:horizontal, 8)
+      refresh = Gtk::Button.new(label: "Refresh")
+      toolbar.append(refresh)
+
+      scroller = Gtk::ScrolledWindow.new
+      scroller.hexpand = true
+      scroller.vexpand = true
+
+      view = Gtk::TextView.new
+      view.editable = false
+      view.monospace = true
+      view.wrap_mode = Gtk::WrapMode::NONE
+
+      scroller.set_child(view)
+      page.append(toolbar)
+      page.append(scroller)
+
+      load_data = proc do
+        Thread.new do
+          begin
+            output, status = Open3.capture2e(
+              "/bin/sh", "-c", command
+            )
+            output = "Exit status: #{status.exitstatus}\n#{output}" unless status.success?
+          rescue StandardError => e
+            output = "#{e.class}: #{e.message}"
+          end
+
+          GLib::Idle.add do
+            view.buffer.text = output
+            GLib::Source::REMOVE
+          end
+        end
+      end
+
+      refresh.signal_connect("clicked") { load_data.call }
+      notebook.append_page(page, Gtk::Label.new(name))
+      load_data.call
+    end
+
+    root.append(notebook)
+  end
+end
+
+app = Gtk::Application.new('com.sysscope.app')
   app.signal_connect('activate') do
     window = Gtk::ApplicationWindow.new(app)
     sysscope_rebuild_ui(window, app)
