@@ -1,3 +1,4 @@
+require 'cgi'
 
 require 'gtk4'
 require 'cairo'
@@ -165,7 +166,7 @@ end
 def make_heading(text, size = 'large')
   label = Gtk::Label.new
   label.set_markup(
-    "<span size=\"#{size}\" weight=\"bold\">#{GLib::Markup.escape_text(text)}</span>"
+    "<span size=\"#{size}\" weight=\"bold\">#{CGI.escapeHTML(text)}</span>"
   )
   label.xalign = 0
   label
