@@ -1221,6 +1221,131 @@ end
 # GTK4 APPLICATION
 # ==================================================
 
+
+require 'openssl'
+require 'securerandom'
+require 'net/smtp'
+require 'base64'
+require 'fileutils'
+
+module SysScopeAuth
+  module_function
+
+  DIR = File.join(Dir.home, '.config', 'sysscope')
+  FILE = File.join(DIR, 'accounts.json')
+
+  def accounts
+    File.exist?(FILE) ? JSON.parse(File.read(FILE)) : {}
+  end
+
+  def save(data)
+    FileUtils.mkdir_p(DIR)
+    File.chmod(0700, DIR)
+    File.open(FILE, File::WRONLY | File::CREAT | File::TRUNC, 0600) do |f|
+      f.write(JSON.pretty_generate(data))
+    end
+  end
+
+  def valid_email?(address)
+    !!(address =~ /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/)
+  end
+
+  def register(address, password)
+    address = address.strip.downcase
+    raise 'Invalid email address' unless valid_email?(address)
+    raise 'Password must have at least 8 characters' if password.length < 8
+
+    data = accounts
+    raise 'Account already exists' if data.key?(address)
+
+    salt = SecureRandom.random_bytes(16)
+    iterations = 300_000
+    hash = OpenSSL::PKCS5.pbkdf2_hmac(
+      password, salt, iterations, 32, 'sha256'
+    )
+
+    data[address] = {
+      'salt' => salt.unpack1('H*'),
+      'hash' => hash.unpack1('H*'),
+      'iterations' => iterations
+    }
+    save(data)
+    true
+  end
+
+  def login(address, password)
+    record = accounts[address.strip.downcase]
+    return false unless record
+
+    salt = [record.fetch('salt')].pack('H*')
+    expected = [record.fetch('hash')].pack('H*')
+
+    actual = OpenSSL::PKCS5.pbkdf2_hmac(
+      password, salt, record.fetch('iterations'), 32, 'sha256'
+    )
+
+    actual.bytesize == expected.bytesize &&
+      OpenSSL.fixed_length_secure_compare(actual, expected)
+  rescue KeyError, ArgumentError
+    false
+  end
+end
+
+# Send HTML email with a clickable button.
+# Configure SMTP_HOST, SMTP_PORT, SMTP_USER,
+# SMTP_PASSWORD and SMTP_FROM in your environment.
+def email(address, button_url, content, btnText)
+  raise 'Invalid recipient email' unless SysScopeAuth.valid_email?(address)
+  raise 'Button URL must use HTTPS' unless button_url.start_with?('https://')
+
+  require 'uri'
+  uri = URI.parse(button_url)
+  raise 'Invalid HTTPS URL' unless uri.is_a?(URI::HTTPS) && uri.host
+
+  host = ENV.fetch('SMTP_HOST')
+  port = Integer(ENV.fetch('SMTP_PORT', '587'))
+  user = ENV.fetch('SMTP_USER')
+  password = ENV.fetch('SMTP_PASSWORD')
+  sender = ENV.fetch('SMTP_FROM', user)
+
+  raise 'Invalid sender email' unless SysScopeAuth.valid_email?(sender)
+
+  html = <<~HTML
+    <html>
+      <body style="font-family:sans-serif;padding:30px">
+        <h1>SysScope</h1>
+        <p>#{CGI.escapeHTML(content.to_s).gsub("\n", '<br>')}</p>
+        <p>
+          <a href="#{CGI.escapeHTML(button_url)}"
+             style="background:#4d99ff;color:white;padding:14px 24px;
+                    border-radius:8px;text-decoration:none;display:inline-block">
+            #{CGI.escapeHTML(btnText.to_s)}
+          </a>
+        </p>
+      </body>
+    </html>
+  HTML
+
+  message = [
+    "From: #{sender}",
+    "To: #{address}",
+    "Subject: SysScope",
+    "MIME-Version: 1.0",
+    "Content-Type: text/html; charset=UTF-8",
+    "Content-Transfer-Encoding: base64",
+    "",
+    Base64.strict_encode64(html)
+  ].join("\r\n")
+
+  smtp = Net::SMTP.new(host, port)
+  smtp.enable_starttls
+  smtp.start('localhost', user, password, :login) do |connection|
+    connection.send_message(message, sender, address)
+  end
+
+  true
+end
+
 app = Gtk::Application.new('com.sysscope.app')
 
 app.signal_connect('activate') do
@@ -1781,8 +1906,102 @@ app.signal_connect('activate') do
   # SHOW WINDOW
   # ==================================================
 
+  
+# ==========================================
+# ACCOUNT INTERFACE
+# ==========================================
+
+auth_page = Gtk::Box.new(:vertical, 14)
+auth_page.halign = :center
+auth_page.valign = :center
+auth_page.set_size_request(370, -1)
+
+auth_page.append(make_heading('SysScope Account', 'xx-large'))
+auth_page.append(Gtk::Label.new('Sign in to continue'))
+
+email_entry = Gtk::Entry.new
+email_entry.placeholder_text = 'Email address'
+auth_page.append(email_entry)
+
+password_entry = Gtk::PasswordEntry.new
+password_entry.placeholder_text = 'Password (8+ characters)'
+auth_page.append(password_entry)
+
+status_label = Gtk::Label.new('')
+status_label.wrap = true
+
+signin_button = Gtk::Button.new(label: 'Sign In')
+signup_button = Gtk::Button.new(label: 'Create Account')
+
+auth_page.append(signin_button)
+auth_page.append(signup_button)
+auth_page.append(status_label)
+
+account_label = Gtk::Label.new('')
+
+signout_button = Gtk::Button.new(label: 'Sign Out')
+header.append(account_label)
+header.append(signout_button)
+
+signed_in = proc do |address|
+  require 'fileutils'
+
+  dir = File.join(Dir.home, '.sysscope')
+  FileUtils.mkdir_p(dir)
+  File.chmod(0700, dir)
+
+  account = SysScopeAuth.accounts[address.strip.downcase]
+  raise 'Account not found' unless account
+
+  email_path = File.join(dir, 'email.txt')
+  password_path = File.join(dir, 'usr-sys-password.txt')
+
+  File.write(email_path, address)
+  File.write(password_path, account.fetch('hash'))
+
+  File.chmod(0600, email_path)
+  File.chmod(0600, password_path)
+
+  account_label.text = address
+  password_entry.text = ''
   window.set_child(root)
-  window.present
+end
+
+signin_button.signal_connect('clicked') do
+  address = email_entry.text.strip.downcase
+  password = password_entry.text
+
+  if SysScopeAuth.login(address, password)
+    signed_in.call(address)
+  else
+    status_label.text = 'Incorrect email or password'
+  end
+end
+
+signup_button.signal_connect('clicked') do
+  begin
+    address = email_entry.text.strip.downcase
+    SysScopeAuth.register(address, password_entry.text)
+    signed_in.call(address)
+  rescue StandardError => e
+    status_label.text = e.message
+  end
+end
+
+password_entry.signal_connect('activate') do
+  signin_button.emit('clicked')
+end
+
+signout_button.signal_connect('clicked') do
+  account_label.text = ''
+  email_entry.text = ''
+  password_entry.text = ''
+  status_label.text = ''
+  window.set_child(auth_page)
+end
+
+window.set_child(auth_page)
+window.present
 end
 
 app.run
