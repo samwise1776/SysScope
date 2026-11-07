@@ -1,3 +1,4 @@
+require 'rbconfig'
 require 'cgi'
 
 require 'gtk4'
@@ -214,11 +215,135 @@ def choose_file(window, action, title, &callback)
   dialog.show
 end
 
+
+# ==========================================
+# SYSSCOPE PLATFORM SUPPORT v1.0.1
+# ==========================================
+
+module SysScopePlatform
+  module_function
+
+  def mac?
+    RbConfig::CONFIG['host_os'] =~ /darwin/i
+  end
+
+  def linux?
+    RbConfig::CONFIG['host_os'] =~ /linux/i
+  end
+
+  def name
+    return 'macOS' if mac?
+
+    if linux?
+      if File.exist?('/dev/.cros_milestone')
+        return 'ChromeOS Linux'
+      end
+
+      if File.exist?('/etc/os-release')
+        info = File.read('/etc/os-release')
+        match = info.match(/^PRETTY_NAME="?([^"\\n]+)"?$/)
+        return match[1] if match
+      end
+
+      return 'Linux'
+    end
+
+    RbConfig::CONFIG['host_os']
+  end
+
+  def capture(*command)
+    IO.popen(command, err: File::NULL, &:read)
+  rescue StandardError
+    ''
+  end
+
+  def cpu_percent
+    if mac?
+      output = capture('top', '-l', '1', '-n', '0')
+      match = output.match(
+        /CPU usage:.*?([\\d.]+)% idle/i
+      )
+
+      return (100.0 - match[1].to_f).clamp(0, 100) if match
+    end
+
+    0.0
+  end
+
+  def memory
+    if mac?
+      total = capture('sysctl', '-n', 'hw.memsize').to_i
+      return nil if total <= 0
+
+      page_size = capture('pagesize').to_i
+      page_size = 4096 if page_size <= 0
+
+      stats = {}
+
+      capture('vm_stat').each_line do |line|
+        if line =~ /^(.+?):\\s+([\\d.]+)\\./
+          stats[$1.strip] = $2.to_i
+        end
+      end
+
+      available_pages = [
+        'Pages free',
+        'Pages inactive',
+        'Pages speculative'
+      ].sum { |key| stats.fetch(key, 0) }
+
+      available = [
+        available_pages * page_size,
+        total
+      ].min
+
+      used = total - available
+
+      return {
+        total_mb: (total / 1048576.0).round(2),
+        used_mb: (used / 1048576.0).round(2),
+        available_mb: (available / 1048576.0).round(2),
+        percent: (used.to_f / total * 100).clamp(0, 100).round(2)
+      }
+    end
+
+    nil
+  end
+
+  def process_count
+    output = capture('ps', '-e', '-o', 'pid=')
+    output.lines.count { |line| line.strip.match?(/\\A\\d+\\z/) }
+  end
+
+  def running_processes(desktop_apps)
+    results = []
+
+    capture('ps', '-A', '-o', 'comm=').each_line do |line|
+      executable = line.strip
+      next if executable.empty?
+
+      process_name = File.basename(executable)
+      info = desktop_apps[process_name.downcase] || {}
+
+      results << {
+        name: info[:name] || process_name,
+        detail: 'Running process',
+        icon: info[:icon] || 'application-x-executable',
+        type: 'Process'
+      }
+    end
+
+    results.uniq { |item| [item[:name], item[:type]] }
+  end
+end
+
 # ==================================================
 # SYSTEM INFORMATION
 # ==================================================
 
 def system_ram_usage
+  platform_memory = SysScopePlatform.memory
+  return platform_memory if platform_memory
   info = {}
 
   File.foreach('/proc/meminfo') do |line|
@@ -246,6 +371,7 @@ def system_ram_usage
 end
 
 def cpu_times
+  return [0, 0] unless File.file?('/proc/stat')
   values = File.open('/proc/stat', &:readline)
                .split.drop(1)
                .map(&:to_i)
@@ -256,6 +382,9 @@ def cpu_times
 end
 
 def system_process_count
+  unless File.directory?('/proc')
+    return SysScopePlatform.process_count
+  end
   Dir.children('/proc').count do |entry|
     entry.match?(/\A\d+\z/)
   end
@@ -320,6 +449,9 @@ def sysscope_desktop_apps
 end
 
 def sysscope_running_apps(desktop_apps)
+  unless File.directory?('/proc')
+    return SysScopePlatform.running_processes(desktop_apps)
+  end
   results = []
 
   if ENV['HYPRLAND_INSTANCE_SIGNATURE']
@@ -1094,7 +1226,7 @@ app = Gtk::Application.new('com.sysscope.app')
 app.signal_connect('activate') do
   window = Gtk::ApplicationWindow.new(app)
 
-  window.title = 'SysScope'
+  window.title = "SysScope 1.0.1 — #{SysScopePlatform.name}"
   window.set_default_size(1250, 800)
 
   theme = Gtk::IconTheme.get_for_display(
@@ -1603,7 +1735,9 @@ app.signal_connect('activate') do
     idle_diff = idle - previous_idle
     total_diff = total - previous_total
 
-    if total_diff > 0
+    if SysScopePlatform.mac?
+      cpu_percent = SysScopePlatform.cpu_percent
+    elsif total_diff > 0
       cpu_percent = (
         100.0 * (
           1.0 - idle_diff.to_f / total_diff
