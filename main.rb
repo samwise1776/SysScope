@@ -1296,11 +1296,15 @@ end
 # SMTP_PASSWORD and SMTP_FROM in your environment.
 def email(address, button_url, content, btnText)
   raise 'Invalid recipient email' unless SysScopeAuth.valid_email?(address)
-  raise 'Button URL must use HTTPS' unless button_url.start_with?('https://')
-
   require 'uri'
   uri = URI.parse(button_url)
-  raise 'Invalid HTTPS URL' unless uri.is_a?(URI::HTTPS) && uri.host
+
+  valid_url = (
+    (uri.is_a?(URI::HTTPS) && uri.host) ||
+    button_url == 'sysscope://'
+  )
+
+  raise 'Invalid button URL' unless valid_url
 
   host = ENV.fetch('SMTP_HOST')
   port = Integer(ENV.fetch('SMTP_PORT', '587'))
@@ -1346,10 +1350,99 @@ def email(address, button_url, content, btnText)
   true
 end
 
-app = Gtk::Application.new('com.sysscope.app')
 
-app.signal_connect('activate') do
-  window = Gtk::ApplicationWindow.new(app)
+# SYSSCOPE RESEND HTTPS EMAIL V1
+require 'net/http'
+require 'uri'
+require 'json'
+require 'cgi'
+
+def email(address, button_url, content, btnText)
+  config_path = File.join(
+    Dir.home, '.config', 'sysscope', 'resend.json'
+  )
+
+  raise 'Resend not configured' unless File.file?(config_path)
+
+  config = JSON.parse(File.read(config_path))
+  api_key = config.fetch('api_key')
+  sender = config.fetch('sender')
+
+  unless address.to_s.match?(/\A[^@\s]+@[^@\s]+\.[^@\s]+\z/)
+    raise 'Invalid recipient email'
+  end
+
+  unless button_url == 'sysscope://' ||
+         button_url.start_with?('https://')
+    raise 'Invalid button URL'
+  end
+
+  html = <<~HTML
+    <!DOCTYPE html>
+    <html>
+      <body style="font-family:Arial,sans-serif;
+                   background:#10151e;
+                   color:white;padding:40px">
+        <div style="max-width:500px;margin:auto;
+                    background:#1c2533;padding:32px;
+                    border-radius:16px">
+          <h1 style="color:#4d99ff">SysScope</h1>
+          <p style="white-space:pre-line">
+            #{CGI.escapeHTML(content.to_s)}
+          </p>
+          <a href="#{CGI.escapeHTML(button_url)}"
+             style="display:inline-block;
+                    background:#4d99ff;color:white;
+                    padding:15px 30px;border-radius:9px;
+                    text-decoration:none;font-weight:bold">
+            #{CGI.escapeHTML(btnText.to_s)}
+          </a>
+        </div>
+      </body>
+    </html>
+  HTML
+
+  uri = URI('https://api.resend.com/emails')
+
+  request = Net::HTTP::Post.new(uri)
+  request['Authorization'] = "Bearer #{api_key}"
+  request['Content-Type'] = 'application/json'
+  request['User-Agent'] = 'SysScope/1.0'
+
+  request.body = JSON.generate(
+    from: sender,
+    to: [address],
+    subject: 'Welcome to SysScope',
+    html: html,
+    text: "#{content}\n\n#{btnText}: #{button_url}"
+  )
+
+  response = Net::HTTP.start(
+    uri.hostname,
+    uri.port,
+    use_ssl: true,
+    open_timeout: 10,
+    read_timeout: 20
+  ) do |http|
+    http.request(request)
+  end
+
+  unless response.is_a?(Net::HTTPSuccess)
+    raise "Email failed (#{response.code}): #{response.body}"
+  end
+
+  puts "Welcome email accepted for #{address}"
+  true
+end
+
+
+# SYSSCOPE_HOT_RELOAD_V1
+require_relative 'sysscope_autoupdate'
+
+def sysscope_rebuild_ui(window, app)
+  generation = (window.instance_variable_get(:@sysscope_generation) || 0) + 1
+  window.instance_variable_set(:@sysscope_generation, generation)
+
 
   window.title = "SysScope 1.0.1 — #{SysScopePlatform.name}"
   window.set_default_size(1250, 800)
@@ -1424,6 +1517,7 @@ app.signal_connect('activate') do
 
   header.append(app_icon)
   header.append(make_heading('SysScope', 'xx-large'))
+ SysScopeUpdater.attach(window, app, header)
 
   root.append(header)
 
@@ -1732,7 +1826,7 @@ app.signal_connect('activate') do
       type: 'IDE'
     }
   ]
-
+  
   selected_search_result = nil
 
   refresh_search = nil
@@ -1844,6 +1938,8 @@ app.signal_connect('activate') do
   end
 
   GLib::Timeout.add(3000) do
+    next GLib::Source::REMOVE if
+      window.instance_variable_get(:@sysscope_generation) != generation
     refresh_search.call unless search.text.to_s.empty?
     GLib::Source::CONTINUE
   end
@@ -1898,6 +1994,8 @@ app.signal_connect('activate') do
   update_stats.call
 
   GLib::Timeout.add(1000) do
+    next GLib::Source::REMOVE if
+      window.instance_variable_get(:@sysscope_generation) != generation
     update_stats.call
     GLib::Source::CONTINUE
   end
@@ -1983,6 +2081,28 @@ signup_button.signal_connect('clicked') do
     address = email_entry.text.strip.downcase
     SysScopeAuth.register(address, password_entry.text)
     signed_in.call(address)
+
+    # SysScope welcome email integration
+    Thread.new do
+      begin
+        email(
+          address,
+          'sysscope://',
+          "Welcome to SysScope\n\nOpen",
+          'Open'
+        )
+        GLib::Idle.add do
+          status_label.text = 'Welcome email sent!'
+          GLib::Source::REMOVE
+        end
+      rescue StandardError => e
+        warn "Welcome email failed: #{e.message}"
+        GLib::Idle.add do
+          status_label.text = "Welcome email failed: #{e.message}"
+          GLib::Source::REMOVE
+        end
+      end
+    end
   rescue StandardError => e
     status_label.text = e.message
   end
@@ -2004,4 +2124,11 @@ window.set_child(auth_page)
 window.present
 end
 
-app.run
+unless $sysscope_hot_load
+  app = Gtk::Application.new('com.sysscope.app')
+  app.signal_connect('activate') do
+    window = Gtk::ApplicationWindow.new(app)
+    sysscope_rebuild_ui(window, app)
+  end
+  app.run
+end

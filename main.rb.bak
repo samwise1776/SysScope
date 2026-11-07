@@ -1732,7 +1732,7 @@ app.signal_connect('activate') do
       type: 'IDE'
     }
   ]
-
+  
   selected_search_result = nil
 
   refresh_search = nil
@@ -1944,6 +1944,24 @@ header.append(account_label)
 header.append(signout_button)
 
 signed_in = proc do |address|
+  require 'fileutils'
+
+  dir = File.join(Dir.home, '.sysscope')
+  FileUtils.mkdir_p(dir)
+  File.chmod(0700, dir)
+
+  account = SysScopeAuth.accounts[address.strip.downcase]
+  raise 'Account not found' unless account
+
+  email_path = File.join(dir, 'email.txt')
+  password_path = File.join(dir, 'usr-sys-password.txt')
+
+  File.write(email_path, address)
+  File.write(password_path, account.fetch('hash'))
+
+  File.chmod(0600, email_path)
+  File.chmod(0600, password_path)
+
   account_label.text = address
   password_entry.text = ''
   window.set_child(root)
