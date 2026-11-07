@@ -1,3 +1,5 @@
+require_relative 'sysscope_designer'
+# SYSSCOPE_DESIGNER_INTEGRATION_V1
 require 'rbconfig'
 require 'cgi'
 
@@ -2122,6 +2124,7 @@ end
 
 window.set_child(auth_page)
 SysScopeExtraTabs.add(window)
+  SysScopeDesigner.add(window)
   window.present
 end
 
