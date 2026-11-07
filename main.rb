@@ -773,7 +773,8 @@ class SysScopeIDE
       view.insert_spaces_instead_of_tabs = true
       view.tab_width = 4
     else
-      view = Gtk::TextView.new(buffer: buffer)
+      view = Gtk::TextView.new
+      view.buffer = buffer
     end
 
     view.monospace = true
