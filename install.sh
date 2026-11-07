@@ -1,91 +1,58 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_ID="com.sysscope.app"
-APP_NAME="SysScope"
+echo "Installing SysScope v1.0.2 for Linux..."
 
-PROJECT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALL_DIR="$HOME/.local/share/sysscope"
+APP_DIR="$HOME/.local/share/sysscope"
 BIN_DIR="$HOME/.local/bin"
-APPS_DIR="$HOME/.local/share/applications"
-ICON_DIR="$HOME/.local/share/icons/hicolor/256x256/apps"
-DESKTOP_DIR="$(xdg-user-dir DESKTOP 2>/dev/null || true)"
+DESKTOP_DIR="$HOME/.local/share/applications"
 
-[ -n "$DESKTOP_DIR" ] || DESKTOP_DIR="$HOME/Desktop"
+command -v ruby >/dev/null || {
+  echo "Ruby is required."
+  exit 1
+}
 
-if [ ! -f "$PROJECT/main.rb" ]; then
-    echo "ERROR: main.rb not found!"
-    exit 1
-fi
+mkdir -p "$APP_DIR" "$BIN_DIR" "$DESKTOP_DIR"
 
-if [ ! -f "$PROJECT/icon.png" ]; then
-    echo "ERROR: icon.png not found!"
-    exit 1
-fi
+SOURCE_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "Installing SysScope..."
+cp "$SOURCE_DIR/main.rb" "$APP_DIR/"
 
-mkdir -p "$INSTALL_DIR" "$BIN_DIR" "$APPS_DIR" "$ICON_DIR"
+for file in sysscope_autoupdate.rb icon.png sysscope.svg; do
+  if [ -f "$SOURCE_DIR/$file" ]; then
+    cp "$SOURCE_DIR/$file" "$APP_DIR/"
+  fi
+done
 
-# Install application files
-cp "$PROJECT/main.rb" "$INSTALL_DIR/"
-cp "$PROJECT/icon.png" "$INSTALL_DIR/"
+for folder in sysscope_assets extensions; do
+  if [ -d "$SOURCE_DIR/$folder" ]; then
+    cp -R "$SOURCE_DIR/$folder" "$APP_DIR/"
+  fi
+done
 
-if [ -f "$PROJECT/sysscope.svg" ]; then
-    cp "$PROJECT/sysscope.svg" "$INSTALL_DIR/"
-fi
-
-# Install launcher command
-cat > "$BIN_DIR/sysscope" <<EOF
+cat > "$BIN_DIR/sysscope" <<'LAUNCH'
 #!/usr/bin/env bash
-cd "$INSTALL_DIR" || exit 1
-exec ruby main.rb "\$@"
-EOF
+cd "$HOME/.local/share/sysscope" || exit 1
+exec ruby main.rb "$@"
+LAUNCH
 
 chmod +x "$BIN_DIR/sysscope"
 
-# Install application icon
-cp "$PROJECT/icon.png" "$ICON_DIR/$APP_ID.png"
-
-# Create application launcher
-cat > "$APPS_DIR/$APP_ID.desktop" <<EOF
+cat > "$DESKTOP_DIR/sysscope.desktop" <<EOF
 [Desktop Entry]
-Version=1.0
-Type=Application
-Name=$APP_NAME
-GenericName=System Monitor
-Comment=Monitor CPU, RAM and running applications
-Exec=$BIN_DIR/sysscope
-Icon=$APP_ID
+Name=SysScope
+Comment=System Monitor and Development Environment
+Exec=$BIN_DIR/sysscope %u
+Icon=$APP_DIR/icon.png
 Terminal=false
-Categories=System;Monitor;
+Type=Application
+Categories=System;Development;
+MimeType=x-scheme-handler/sysscope;
 StartupNotify=true
-StartupWMClass=$APP_ID
 EOF
 
-chmod 644 "$APPS_DIR/$APP_ID.desktop"
+xdg-mime default sysscope.desktop x-scheme-handler/sysscope 2>/dev/null || true
+update-desktop-database "$DESKTOP_DIR" 2>/dev/null || true
 
-# Create desktop shortcut
-if [ -d "$DESKTOP_DIR" ]; then
-    cp "$APPS_DIR/$APP_ID.desktop" "$DESKTOP_DIR/$APP_ID.desktop"
-    chmod +x "$DESKTOP_DIR/$APP_ID.desktop"
-    echo "Desktop shortcut installed."
-else
-    echo "Desktop folder not found; application menu launcher installed."
-fi
-
-# Refresh desktop application database
-if command -v update-desktop-database >/dev/null 2>&1; then
-    update-desktop-database "$APPS_DIR" || true
-fi
-
-echo
-echo "================================="
-echo " SysScope installed successfully!"
-echo "================================="
-echo "Application: $INSTALL_DIR"
-echo "Icon:        $ICON_DIR/$APP_ID.png"
-echo "Launcher:    $APPS_DIR/$APP_ID.desktop"
-echo
-echo "Open SysScope from your application menu."
-echo "Or run: $BIN_DIR/sysscope"
+echo "SysScope v1.0.2 installed!"
+echo "Launch with: $BIN_DIR/sysscope"
