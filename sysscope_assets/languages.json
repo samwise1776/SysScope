@@ -1,0 +1,2002 @@
+[
+  {
+    "name": "Python",
+    "icon": "icons/lang-001.svg"
+  },
+  {
+    "name": "Ruby",
+    "icon": "icons/lang-002.svg"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "icons/lang-003.svg"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "icons/lang-004.svg"
+  },
+  {
+    "name": "Java",
+    "icon": "icons/lang-005.svg"
+  },
+  {
+    "name": "C",
+    "icon": "icons/lang-006.svg"
+  },
+  {
+    "name": "C++",
+    "icon": "icons/lang-007.svg"
+  },
+  {
+    "name": "C#",
+    "icon": "icons/lang-008.svg"
+  },
+  {
+    "name": "Go",
+    "icon": "icons/lang-009.svg"
+  },
+  {
+    "name": "Rust",
+    "icon": "icons/lang-010.svg"
+  },
+  {
+    "name": "Swift",
+    "icon": "icons/lang-011.svg"
+  },
+  {
+    "name": "Kotlin",
+    "icon": "icons/lang-012.svg"
+  },
+  {
+    "name": "Dart",
+    "icon": "icons/lang-013.svg"
+  },
+  {
+    "name": "PHP",
+    "icon": "icons/lang-014.svg"
+  },
+  {
+    "name": "Perl",
+    "icon": "icons/lang-015.svg"
+  },
+  {
+    "name": "Lua",
+    "icon": "icons/lang-016.svg"
+  },
+  {
+    "name": "R",
+    "icon": "icons/lang-017.svg"
+  },
+  {
+    "name": "Julia",
+    "icon": "icons/lang-018.svg"
+  },
+  {
+    "name": "Zig",
+    "icon": "icons/lang-019.svg"
+  },
+  {
+    "name": "Nim",
+    "icon": "icons/lang-020.svg"
+  },
+  {
+    "name": "Haskell",
+    "icon": "icons/lang-021.svg"
+  },
+  {
+    "name": "Scala",
+    "icon": "icons/lang-022.svg"
+  },
+  {
+    "name": "Elixir",
+    "icon": "icons/lang-023.svg"
+  },
+  {
+    "name": "Erlang",
+    "icon": "icons/lang-024.svg"
+  },
+  {
+    "name": "Clojure",
+    "icon": "icons/lang-025.svg"
+  },
+  {
+    "name": "F#",
+    "icon": "icons/lang-026.svg"
+  },
+  {
+    "name": "OCaml",
+    "icon": "icons/lang-027.svg"
+  },
+  {
+    "name": "Fortran",
+    "icon": "icons/lang-028.svg"
+  },
+  {
+    "name": "COBOL",
+    "icon": "icons/lang-029.svg"
+  },
+  {
+    "name": "Assembly",
+    "icon": "icons/lang-030.svg"
+  },
+  {
+    "name": "Bash",
+    "icon": "icons/lang-031.svg"
+  },
+  {
+    "name": "PowerShell",
+    "icon": "icons/lang-032.svg"
+  },
+  {
+    "name": "Fish",
+    "icon": "icons/lang-033.svg"
+  },
+  {
+    "name": "Zsh",
+    "icon": "icons/lang-034.svg"
+  },
+  {
+    "name": "HTML",
+    "icon": "icons/lang-035.svg"
+  },
+  {
+    "name": "CSS",
+    "icon": "icons/lang-036.svg"
+  },
+  {
+    "name": "SCSS",
+    "icon": "icons/lang-037.svg"
+  },
+  {
+    "name": "Sass",
+    "icon": "icons/lang-038.svg"
+  },
+  {
+    "name": "Less",
+    "icon": "icons/lang-039.svg"
+  },
+  {
+    "name": "SQL",
+    "icon": "icons/lang-040.svg"
+  },
+  {
+    "name": "JSON",
+    "icon": "icons/lang-041.svg"
+  },
+  {
+    "name": "YAML",
+    "icon": "icons/lang-042.svg"
+  },
+  {
+    "name": "TOML",
+    "icon": "icons/lang-043.svg"
+  },
+  {
+    "name": "XML",
+    "icon": "icons/lang-044.svg"
+  },
+  {
+    "name": "Markdown",
+    "icon": "icons/lang-045.svg"
+  },
+  {
+    "name": "LaTeX",
+    "icon": "icons/lang-046.svg"
+  },
+  {
+    "name": "Dockerfile",
+    "icon": "icons/lang-047.svg"
+  },
+  {
+    "name": "Makefile",
+    "icon": "icons/lang-048.svg"
+  },
+  {
+    "name": "CMake",
+    "icon": "icons/lang-049.svg"
+  },
+  {
+    "name": "Meson",
+    "icon": "icons/lang-050.svg"
+  },
+  {
+    "name": "Nix",
+    "icon": "icons/lang-051.svg"
+  },
+  {
+    "name": "Terraform",
+    "icon": "icons/lang-052.svg"
+  },
+  {
+    "name": "HCL",
+    "icon": "icons/lang-053.svg"
+  },
+  {
+    "name": "GraphQL",
+    "icon": "icons/lang-054.svg"
+  },
+  {
+    "name": "Protobuf",
+    "icon": "icons/lang-055.svg"
+  },
+  {
+    "name": "Solidity",
+    "icon": "icons/lang-056.svg"
+  },
+  {
+    "name": "Vyper",
+    "icon": "icons/lang-057.svg"
+  },
+  {
+    "name": "Move",
+    "icon": "icons/lang-058.svg"
+  },
+  {
+    "name": "Ada",
+    "icon": "icons/lang-059.svg"
+  },
+  {
+    "name": "Pascal",
+    "icon": "icons/lang-060.svg"
+  },
+  {
+    "name": "Delphi",
+    "icon": "icons/lang-061.svg"
+  },
+  {
+    "name": "Visual Basic",
+    "icon": "icons/lang-062.svg"
+  },
+  {
+    "name": "VBA",
+    "icon": "icons/lang-063.svg"
+  },
+  {
+    "name": "Groovy",
+    "icon": "icons/lang-064.svg"
+  },
+  {
+    "name": "Gradle",
+    "icon": "icons/lang-065.svg"
+  },
+  {
+    "name": "Objective-C",
+    "icon": "icons/lang-066.svg"
+  },
+  {
+    "name": "Objective-C++",
+    "icon": "icons/lang-067.svg"
+  },
+  {
+    "name": "CUDA",
+    "icon": "icons/lang-068.svg"
+  },
+  {
+    "name": "OpenCL",
+    "icon": "icons/lang-069.svg"
+  },
+  {
+    "name": "GLSL",
+    "icon": "icons/lang-070.svg"
+  },
+  {
+    "name": "HLSL",
+    "icon": "icons/lang-071.svg"
+  },
+  {
+    "name": "WGSL",
+    "icon": "icons/lang-072.svg"
+  },
+  {
+    "name": "WebAssembly",
+    "icon": "icons/lang-073.svg"
+  },
+  {
+    "name": "WAT",
+    "icon": "icons/lang-074.svg"
+  },
+  {
+    "name": "Brainfuck",
+    "icon": "icons/lang-075.svg"
+  },
+  {
+    "name": "Whitespace",
+    "icon": "icons/lang-076.svg"
+  },
+  {
+    "name": "Befunge",
+    "icon": "icons/lang-077.svg"
+  },
+  {
+    "name": "APL",
+    "icon": "icons/lang-078.svg"
+  },
+  {
+    "name": "BQN",
+    "icon": "icons/lang-079.svg"
+  },
+  {
+    "name": "J",
+    "icon": "icons/lang-080.svg"
+  },
+  {
+    "name": "K",
+    "icon": "icons/lang-081.svg"
+  },
+  {
+    "name": "Q",
+    "icon": "icons/lang-082.svg"
+  },
+  {
+    "name": "Smalltalk",
+    "icon": "icons/lang-083.svg"
+  },
+  {
+    "name": "Scheme",
+    "icon": "icons/lang-084.svg"
+  },
+  {
+    "name": "Racket",
+    "icon": "icons/lang-085.svg"
+  },
+  {
+    "name": "Common Lisp",
+    "icon": "icons/lang-086.svg"
+  },
+  {
+    "name": "Emacs Lisp",
+    "icon": "icons/lang-087.svg"
+  },
+  {
+    "name": "D",
+    "icon": "icons/lang-088.svg"
+  },
+  {
+    "name": "Crystal",
+    "icon": "icons/lang-089.svg"
+  },
+  {
+    "name": "V",
+    "icon": "icons/lang-090.svg"
+  },
+  {
+    "name": "Odin",
+    "icon": "icons/lang-091.svg"
+  },
+  {
+    "name": "Carbon",
+    "icon": "icons/lang-092.svg"
+  },
+  {
+    "name": "Mojo",
+    "icon": "icons/lang-093.svg"
+  },
+  {
+    "name": "Hack",
+    "icon": "icons/lang-094.svg"
+  },
+  {
+    "name": "ReasonML",
+    "icon": "icons/lang-095.svg"
+  },
+  {
+    "name": "ReScript",
+    "icon": "icons/lang-096.svg"
+  },
+  {
+    "name": "Elm",
+    "icon": "icons/lang-097.svg"
+  },
+  {
+    "name": "PureScript",
+    "icon": "icons/lang-098.svg"
+  },
+  {
+    "name": "Idris",
+    "icon": "icons/lang-099.svg"
+  },
+  {
+    "name": "Agda",
+    "icon": "icons/lang-100.svg"
+  },
+  {
+    "name": "Lean",
+    "icon": "icons/lang-101.svg"
+  },
+  {
+    "name": "Coq",
+    "icon": "icons/lang-102.svg"
+  },
+  {
+    "name": "Isabelle",
+    "icon": "icons/lang-103.svg"
+  },
+  {
+    "name": "Verilog",
+    "icon": "icons/lang-104.svg"
+  },
+  {
+    "name": "SystemVerilog",
+    "icon": "icons/lang-105.svg"
+  },
+  {
+    "name": "VHDL",
+    "icon": "icons/lang-106.svg"
+  },
+  {
+    "name": "Tcl",
+    "icon": "icons/lang-107.svg"
+  },
+  {
+    "name": "Awk",
+    "icon": "icons/lang-108.svg"
+  },
+  {
+    "name": "Sed",
+    "icon": "icons/lang-109.svg"
+  },
+  {
+    "name": "Gherkin",
+    "icon": "icons/lang-110.svg"
+  },
+  {
+    "name": "INI",
+    "icon": "icons/lang-111.svg"
+  },
+  {
+    "name": "CSV",
+    "icon": "icons/lang-112.svg"
+  },
+  {
+    "name": "TSV",
+    "icon": "icons/lang-113.svg"
+  },
+  {
+    "name": "Diff",
+    "icon": "icons/lang-114.svg"
+  },
+  {
+    "name": "Git Config",
+    "icon": "icons/lang-115.svg"
+  },
+  {
+    "name": "Git Ignore",
+    "icon": "icons/lang-116.svg"
+  },
+  {
+    "name": "Apache Config",
+    "icon": "icons/lang-117.svg"
+  },
+  {
+    "name": "Nginx Config",
+    "icon": "icons/lang-118.svg"
+  },
+  {
+    "name": "Vue",
+    "icon": "icons/lang-119.svg"
+  },
+  {
+    "name": "Svelte",
+    "icon": "icons/lang-120.svg"
+  },
+  {
+    "name": "Astro",
+    "icon": "icons/lang-121.svg"
+  },
+  {
+    "name": "JSX",
+    "icon": "icons/lang-122.svg"
+  },
+  {
+    "name": "TSX",
+    "icon": "icons/lang-123.svg"
+  },
+  {
+    "name": "QML",
+    "icon": "icons/lang-124.svg"
+  },
+  {
+    "name": "GDScript",
+    "icon": "icons/lang-125.svg"
+  },
+  {
+    "name": "Godot Shader",
+    "icon": "icons/lang-126.svg"
+  },
+  {
+    "name": "RenPy",
+    "icon": "icons/lang-127.svg"
+  },
+  {
+    "name": "Processing",
+    "icon": "icons/lang-128.svg"
+  },
+  {
+    "name": "Arduino",
+    "icon": "icons/lang-129.svg"
+  },
+  {
+    "name": "MATLAB",
+    "icon": "icons/lang-130.svg"
+  },
+  {
+    "name": "Octave",
+    "icon": "icons/lang-131.svg"
+  },
+  {
+    "name": "Wolfram",
+    "icon": "icons/lang-132.svg"
+  },
+  {
+    "name": "Stata",
+    "icon": "icons/lang-133.svg"
+  },
+  {
+    "name": "SAS",
+    "icon": "icons/lang-134.svg"
+  },
+  {
+    "name": "SPSS",
+    "icon": "icons/lang-135.svg"
+  },
+  {
+    "name": "Scratch",
+    "icon": "icons/lang-136.svg"
+  },
+  {
+    "name": "Logo",
+    "icon": "icons/lang-137.svg"
+  },
+  {
+    "name": "PostScript",
+    "icon": "icons/lang-138.svg"
+  },
+  {
+    "name": "Forth",
+    "icon": "icons/lang-139.svg"
+  },
+  {
+    "name": "Factor",
+    "icon": "icons/lang-140.svg"
+  },
+  {
+    "name": "Pony",
+    "icon": "icons/lang-141.svg"
+  },
+  {
+    "name": "Chapel",
+    "icon": "icons/lang-142.svg"
+  },
+  {
+    "name": "Eiffel",
+    "icon": "icons/lang-143.svg"
+  },
+  {
+    "name": "Ballerina",
+    "icon": "icons/lang-144.svg"
+  },
+  {
+    "name": "ABAP",
+    "icon": "icons/lang-145.svg"
+  },
+  {
+    "name": "Apex",
+    "icon": "icons/lang-146.svg"
+  },
+  {
+    "name": "PL/SQL",
+    "icon": "icons/lang-147.svg"
+  },
+  {
+    "name": "T-SQL",
+    "icon": "icons/lang-148.svg"
+  },
+  {
+    "name": "XQuery",
+    "icon": "icons/lang-149.svg"
+  },
+  {
+    "name": "XPath",
+    "icon": "icons/lang-150.svg"
+  },
+  {
+    "name": "XSLT",
+    "icon": "icons/lang-151.svg"
+  },
+  {
+    "name": "Liquid",
+    "icon": "icons/lang-152.svg"
+  },
+  {
+    "name": "Jinja",
+    "icon": "icons/lang-153.svg"
+  },
+  {
+    "name": "Twig",
+    "icon": "icons/lang-154.svg"
+  },
+  {
+    "name": "Handlebars",
+    "icon": "icons/lang-155.svg"
+  },
+  {
+    "name": "Mustache",
+    "icon": "icons/lang-156.svg"
+  },
+  {
+    "name": "Pug",
+    "icon": "icons/lang-157.svg"
+  },
+  {
+    "name": "Haml",
+    "icon": "icons/lang-158.svg"
+  },
+  {
+    "name": "Slim",
+    "icon": "icons/lang-159.svg"
+  },
+  {
+    "name": "ERB",
+    "icon": "icons/lang-160.svg"
+  },
+  {
+    "name": "EJS",
+    "icon": "icons/lang-161.svg"
+  },
+  {
+    "name": "Razor",
+    "icon": "icons/lang-162.svg"
+  },
+  {
+    "name": "ASP",
+    "icon": "icons/lang-163.svg"
+  },
+  {
+    "name": "ASP.NET",
+    "icon": "icons/lang-164.svg"
+  },
+  {
+    "name": "ColdFusion",
+    "icon": "icons/lang-165.svg"
+  },
+  {
+    "name": "CFML",
+    "icon": "icons/lang-166.svg"
+  },
+  {
+    "name": "ActionScript",
+    "icon": "icons/lang-167.svg"
+  },
+  {
+    "name": "Haxe",
+    "icon": "icons/lang-168.svg"
+  },
+  {
+    "name": "CoffeeScript",
+    "icon": "icons/lang-169.svg"
+  },
+  {
+    "name": "LiveScript",
+    "icon": "icons/lang-170.svg"
+  },
+  {
+    "name": "PureBasic",
+    "icon": "icons/lang-171.svg"
+  },
+  {
+    "name": "AutoHotkey",
+    "icon": "icons/lang-172.svg"
+  },
+  {
+    "name": "AutoIt",
+    "icon": "icons/lang-173.svg"
+  },
+  {
+    "name": "AppleScript",
+    "icon": "icons/lang-174.svg"
+  },
+  {
+    "name": "Vim Script",
+    "icon": "icons/lang-175.svg"
+  },
+  {
+    "name": "Vim9 Script",
+    "icon": "icons/lang-176.svg"
+  },
+  {
+    "name": "Hy",
+    "icon": "icons/lang-177.svg"
+  },
+  {
+    "name": "Janet",
+    "icon": "icons/lang-178.svg"
+  },
+  {
+    "name": "PicoLisp",
+    "icon": "icons/lang-179.svg"
+  },
+  {
+    "name": "Io",
+    "icon": "icons/lang-180.svg"
+  },
+  {
+    "name": "Red",
+    "icon": "icons/lang-181.svg"
+  },
+  {
+    "name": "Rebol",
+    "icon": "icons/lang-182.svg"
+  },
+  {
+    "name": "Raku",
+    "icon": "icons/lang-183.svg"
+  },
+  {
+    "name": "Mercury",
+    "icon": "icons/lang-184.svg"
+  },
+  {
+    "name": "Prolog",
+    "icon": "icons/lang-185.svg"
+  },
+  {
+    "name": "Datalog",
+    "icon": "icons/lang-186.svg"
+  },
+  {
+    "name": "CLIPS",
+    "icon": "icons/lang-187.svg"
+  },
+  {
+    "name": "Jess",
+    "icon": "icons/lang-188.svg"
+  },
+  {
+    "name": "Q#",
+    "icon": "icons/lang-189.svg"
+  },
+  {
+    "name": "OpenQASM",
+    "icon": "icons/lang-190.svg"
+  },
+  {
+    "name": "Cirq",
+    "icon": "icons/lang-191.svg"
+  },
+  {
+    "name": "Qiskit",
+    "icon": "icons/lang-192.svg"
+  },
+  {
+    "name": "Puppet",
+    "icon": "icons/lang-193.svg"
+  },
+  {
+    "name": "Chef",
+    "icon": "icons/lang-194.svg"
+  },
+  {
+    "name": "Ansible",
+    "icon": "icons/lang-195.svg"
+  },
+  {
+    "name": "Salt",
+    "icon": "icons/lang-196.svg"
+  },
+  {
+    "name": "Bicep",
+    "icon": "icons/lang-197.svg"
+  },
+  {
+    "name": "ARM Template",
+    "icon": "icons/lang-198.svg"
+  },
+  {
+    "name": "Jsonnet",
+    "icon": "icons/lang-199.svg"
+  },
+  {
+    "name": "Dhall",
+    "icon": "icons/lang-200.svg"
+  },
+  {
+    "name": "Cue",
+    "icon": "icons/lang-201.svg"
+  },
+  {
+    "name": "Starlark",
+    "icon": "icons/lang-202.svg"
+  },
+  {
+    "name": "Bazel",
+    "icon": "icons/lang-203.svg"
+  },
+  {
+    "name": "Buck",
+    "icon": "icons/lang-204.svg"
+  },
+  {
+    "name": "Just",
+    "icon": "icons/lang-205.svg"
+  },
+  {
+    "name": "Taskfile",
+    "icon": "icons/lang-206.svg"
+  },
+  {
+    "name": "Earthfile",
+    "icon": "icons/lang-207.svg"
+  },
+  {
+    "name": "Kconfig",
+    "icon": "icons/lang-208.svg"
+  },
+  {
+    "name": "Device Tree",
+    "icon": "icons/lang-209.svg"
+  },
+  {
+    "name": "Linker Script",
+    "icon": "icons/lang-210.svg"
+  },
+  {
+    "name": "LLVM IR",
+    "icon": "icons/lang-211.svg"
+  },
+  {
+    "name": "MLIR",
+    "icon": "icons/lang-212.svg"
+  },
+  {
+    "name": "NASM",
+    "icon": "icons/lang-213.svg"
+  },
+  {
+    "name": "GAS",
+    "icon": "icons/lang-214.svg"
+  },
+  {
+    "name": "MASM",
+    "icon": "icons/lang-215.svg"
+  },
+  {
+    "name": "ARM Assembly",
+    "icon": "icons/lang-216.svg"
+  },
+  {
+    "name": "RISC-V Assembly",
+    "icon": "icons/lang-217.svg"
+  },
+  {
+    "name": "MIPS Assembly",
+    "icon": "icons/lang-218.svg"
+  },
+  {
+    "name": "6502 Assembly",
+    "icon": "icons/lang-219.svg"
+  },
+  {
+    "name": "Z80 Assembly",
+    "icon": "icons/lang-220.svg"
+  },
+  {
+    "name": "x86 Assembly",
+    "icon": "icons/lang-221.svg"
+  },
+  {
+    "name": "x64 Assembly",
+    "icon": "icons/lang-222.svg"
+  },
+  {
+    "name": "FASM",
+    "icon": "icons/lang-223.svg"
+  },
+  {
+    "name": "YASM",
+    "icon": "icons/lang-224.svg"
+  },
+  {
+    "name": "JCL",
+    "icon": "icons/lang-225.svg"
+  },
+  {
+    "name": "RPG",
+    "icon": "icons/lang-226.svg"
+  },
+  {
+    "name": "MUMPS",
+    "icon": "icons/lang-227.svg"
+  },
+  {
+    "name": "OpenEdge ABL",
+    "icon": "icons/lang-228.svg"
+  },
+  {
+    "name": "Inform 7",
+    "icon": "icons/lang-229.svg"
+  },
+  {
+    "name": "Ink",
+    "icon": "icons/lang-230.svg"
+  },
+  {
+    "name": "Yarn Spinner",
+    "icon": "icons/lang-231.svg"
+  },
+  {
+    "name": "TADS",
+    "icon": "icons/lang-232.svg"
+  },
+  {
+    "name": "Quest",
+    "icon": "icons/lang-233.svg"
+  },
+  {
+    "name": "Fennel",
+    "icon": "icons/lang-234.svg"
+  },
+  {
+    "name": "MoonScript",
+    "icon": "icons/lang-235.svg"
+  },
+  {
+    "name": "Teal",
+    "icon": "icons/lang-236.svg"
+  },
+  {
+    "name": "Luau",
+    "icon": "icons/lang-237.svg"
+  },
+  {
+    "name": "Wren",
+    "icon": "icons/lang-238.svg"
+  },
+  {
+    "name": "Squirrel",
+    "icon": "icons/lang-239.svg"
+  },
+  {
+    "name": "AngelScript",
+    "icon": "icons/lang-240.svg"
+  },
+  {
+    "name": "GML",
+    "icon": "icons/lang-241.svg"
+  },
+  {
+    "name": "UnrealScript",
+    "icon": "icons/lang-242.svg"
+  },
+  {
+    "name": "Verse",
+    "icon": "icons/lang-243.svg"
+  },
+  {
+    "name": "Blueprint",
+    "icon": "icons/lang-244.svg"
+  },
+  {
+    "name": "ShaderLab",
+    "icon": "icons/lang-245.svg"
+  },
+  {
+    "name": "Metal Shader",
+    "icon": "icons/lang-246.svg"
+  },
+  {
+    "name": "Slang",
+    "icon": "icons/lang-247.svg"
+  },
+  {
+    "name": "Houdini VEX",
+    "icon": "icons/lang-248.svg"
+  },
+  {
+    "name": "OpenSCAD",
+    "icon": "icons/lang-249.svg"
+  },
+  {
+    "name": "CadQuery",
+    "icon": "icons/lang-250.svg"
+  },
+  {
+    "name": "FreeCAD Macro",
+    "icon": "icons/lang-251.svg"
+  },
+  {
+    "name": "Blender Python",
+    "icon": "icons/lang-252.svg"
+  },
+  {
+    "name": "MaxScript",
+    "icon": "icons/lang-253.svg"
+  },
+  {
+    "name": "MEL",
+    "icon": "icons/lang-254.svg"
+  },
+  {
+    "name": "HScript",
+    "icon": "icons/lang-255.svg"
+  },
+  {
+    "name": "LilyPond",
+    "icon": "icons/lang-256.svg"
+  },
+  {
+    "name": "ABC Notation",
+    "icon": "icons/lang-257.svg"
+  },
+  {
+    "name": "MusicXML",
+    "icon": "icons/lang-258.svg"
+  },
+  {
+    "name": "Lily",
+    "icon": "icons/lang-259.svg"
+  },
+  {
+    "name": "AsciiDoc",
+    "icon": "icons/lang-260.svg"
+  },
+  {
+    "name": "reStructuredText",
+    "icon": "icons/lang-261.svg"
+  },
+  {
+    "name": "Org Mode",
+    "icon": "icons/lang-262.svg"
+  },
+  {
+    "name": "BibTeX",
+    "icon": "icons/lang-263.svg"
+  },
+  {
+    "name": "RMarkdown",
+    "icon": "icons/lang-264.svg"
+  },
+  {
+    "name": "Quarto",
+    "icon": "icons/lang-265.svg"
+  },
+  {
+    "name": "Typst",
+    "icon": "icons/lang-266.svg"
+  },
+  {
+    "name": "PlantUML",
+    "icon": "icons/lang-267.svg"
+  },
+  {
+    "name": "Mermaid",
+    "icon": "icons/lang-268.svg"
+  },
+  {
+    "name": "DOT",
+    "icon": "icons/lang-269.svg"
+  },
+  {
+    "name": "Graphviz",
+    "icon": "icons/lang-270.svg"
+  },
+  {
+    "name": "D2",
+    "icon": "icons/lang-271.svg"
+  },
+  {
+    "name": "PDDL",
+    "icon": "icons/lang-272.svg"
+  },
+  {
+    "name": "MiniZinc",
+    "icon": "icons/lang-273.svg"
+  },
+  {
+    "name": "Z3 SMT-LIB",
+    "icon": "icons/lang-274.svg"
+  },
+  {
+    "name": "Alloy",
+    "icon": "icons/lang-275.svg"
+  },
+  {
+    "name": "TLA+",
+    "icon": "icons/lang-276.svg"
+  },
+  {
+    "name": "PlusCal",
+    "icon": "icons/lang-277.svg"
+  },
+  {
+    "name": "Promela",
+    "icon": "icons/lang-278.svg"
+  },
+  {
+    "name": "Spin",
+    "icon": "icons/lang-279.svg"
+  },
+  {
+    "name": "Yacc",
+    "icon": "icons/lang-280.svg"
+  },
+  {
+    "name": "Lex",
+    "icon": "icons/lang-281.svg"
+  },
+  {
+    "name": "Bison",
+    "icon": "icons/lang-282.svg"
+  },
+  {
+    "name": "Flex",
+    "icon": "icons/lang-283.svg"
+  },
+  {
+    "name": "ANTLR",
+    "icon": "icons/lang-284.svg"
+  },
+  {
+    "name": "PEG",
+    "icon": "icons/lang-285.svg"
+  },
+  {
+    "name": "EBNF",
+    "icon": "icons/lang-286.svg"
+  },
+  {
+    "name": "BNF",
+    "icon": "icons/lang-287.svg"
+  },
+  {
+    "name": "Regex",
+    "icon": "icons/lang-288.svg"
+  },
+  {
+    "name": "PCRE",
+    "icon": "icons/lang-289.svg"
+  },
+  {
+    "name": "Oniguruma",
+    "icon": "icons/lang-290.svg"
+  },
+  {
+    "name": "Thrift",
+    "icon": "icons/lang-291.svg"
+  },
+  {
+    "name": "Avro",
+    "icon": "icons/lang-292.svg"
+  },
+  {
+    "name": "Capn Proto",
+    "icon": "icons/lang-293.svg"
+  },
+  {
+    "name": "FlatBuffers",
+    "icon": "icons/lang-294.svg"
+  },
+  {
+    "name": "OpenAPI",
+    "icon": "icons/lang-295.svg"
+  },
+  {
+    "name": "Swagger",
+    "icon": "icons/lang-296.svg"
+  },
+  {
+    "name": "RAML",
+    "icon": "icons/lang-297.svg"
+  },
+  {
+    "name": "AsyncAPI",
+    "icon": "icons/lang-298.svg"
+  },
+  {
+    "name": "WSDL",
+    "icon": "icons/lang-299.svg"
+  },
+  {
+    "name": "IDL",
+    "icon": "icons/lang-300.svg"
+  },
+  {
+    "name": "CORBA IDL",
+    "icon": "icons/lang-301.svg"
+  },
+  {
+    "name": "D-Bus XML",
+    "icon": "icons/lang-302.svg"
+  },
+  {
+    "name": "GIR",
+    "icon": "icons/lang-303.svg"
+  },
+  {
+    "name": "GObject Introspection",
+    "icon": "icons/lang-304.svg"
+  },
+  {
+    "name": "GTK Builder XML",
+    "icon": "icons/lang-305.svg"
+  },
+  {
+    "name": "Glade",
+    "icon": "icons/lang-306.svg"
+  },
+  {
+    "name": "Qt UI",
+    "icon": "icons/lang-307.svg"
+  },
+  {
+    "name": "Android XML",
+    "icon": "icons/lang-308.svg"
+  },
+  {
+    "name": "Android Manifest",
+    "icon": "icons/lang-309.svg"
+  },
+  {
+    "name": "Gradle Kotlin DSL",
+    "icon": "icons/lang-310.svg"
+  },
+  {
+    "name": "Podfile",
+    "icon": "icons/lang-311.svg"
+  },
+  {
+    "name": "Fastfile",
+    "icon": "icons/lang-312.svg"
+  },
+  {
+    "name": "Gemfile",
+    "icon": "icons/lang-313.svg"
+  },
+  {
+    "name": "Rakefile",
+    "icon": "icons/lang-314.svg"
+  },
+  {
+    "name": "Cargo TOML",
+    "icon": "icons/lang-315.svg"
+  },
+  {
+    "name": "Package JSON",
+    "icon": "icons/lang-316.svg"
+  },
+  {
+    "name": "Composer JSON",
+    "icon": "icons/lang-317.svg"
+  },
+  {
+    "name": "Pip Requirements",
+    "icon": "icons/lang-318.svg"
+  },
+  {
+    "name": "Poetry TOML",
+    "icon": "icons/lang-319.svg"
+  },
+  {
+    "name": "Pipfile",
+    "icon": "icons/lang-320.svg"
+  },
+  {
+    "name": "Conda YAML",
+    "icon": "icons/lang-321.svg"
+  },
+  {
+    "name": "Helm",
+    "icon": "icons/lang-322.svg"
+  },
+  {
+    "name": "Kubernetes YAML",
+    "icon": "icons/lang-323.svg"
+  },
+  {
+    "name": "CloudFormation",
+    "icon": "icons/lang-324.svg"
+  },
+  {
+    "name": "Serverless YAML",
+    "icon": "icons/lang-325.svg"
+  },
+  {
+    "name": "GitHub Actions",
+    "icon": "icons/lang-326.svg"
+  },
+  {
+    "name": "GitLab CI",
+    "icon": "icons/lang-327.svg"
+  },
+  {
+    "name": "CircleCI",
+    "icon": "icons/lang-328.svg"
+  },
+  {
+    "name": "Jenkinsfile",
+    "icon": "icons/lang-329.svg"
+  },
+  {
+    "name": "Travis CI",
+    "icon": "icons/lang-330.svg"
+  },
+  {
+    "name": "Azure Pipelines",
+    "icon": "icons/lang-331.svg"
+  },
+  {
+    "name": "Bitbucket Pipelines",
+    "icon": "icons/lang-332.svg"
+  },
+  {
+    "name": "Buildkite",
+    "icon": "icons/lang-333.svg"
+  },
+  {
+    "name": "Drone CI",
+    "icon": "icons/lang-334.svg"
+  },
+  {
+    "name": "Woodpecker CI",
+    "icon": "icons/lang-335.svg"
+  },
+  {
+    "name": "Nushell",
+    "icon": "icons/lang-336.svg"
+  },
+  {
+    "name": "Xonsh",
+    "icon": "icons/lang-337.svg"
+  },
+  {
+    "name": "Ion Shell",
+    "icon": "icons/lang-338.svg"
+  },
+  {
+    "name": "Oil Shell",
+    "icon": "icons/lang-339.svg"
+  },
+  {
+    "name": "Batch",
+    "icon": "icons/lang-340.svg"
+  },
+  {
+    "name": "CMD",
+    "icon": "icons/lang-341.svg"
+  },
+  {
+    "name": "VBScript",
+    "icon": "icons/lang-342.svg"
+  },
+  {
+    "name": "WSH",
+    "icon": "icons/lang-343.svg"
+  },
+  {
+    "name": "Expect",
+    "icon": "icons/lang-344.svg"
+  },
+  {
+    "name": "Fish Config",
+    "icon": "icons/lang-345.svg"
+  },
+  {
+    "name": "Tmux Config",
+    "icon": "icons/lang-346.svg"
+  },
+  {
+    "name": "Screen Config",
+    "icon": "icons/lang-347.svg"
+  },
+  {
+    "name": "i3 Config",
+    "icon": "icons/lang-348.svg"
+  },
+  {
+    "name": "Sway Config",
+    "icon": "icons/lang-349.svg"
+  },
+  {
+    "name": "Hyprland Config",
+    "icon": "icons/lang-350.svg"
+  },
+  {
+    "name": "Waybar Config",
+    "icon": "icons/lang-351.svg"
+  },
+  {
+    "name": "Polybar Config",
+    "icon": "icons/lang-352.svg"
+  },
+  {
+    "name": "Xresources",
+    "icon": "icons/lang-353.svg"
+  },
+  {
+    "name": "Xdefaults",
+    "icon": "icons/lang-354.svg"
+  },
+  {
+    "name": "Alacritty TOML",
+    "icon": "icons/lang-355.svg"
+  },
+  {
+    "name": "Kitty Config",
+    "icon": "icons/lang-356.svg"
+  },
+  {
+    "name": "WezTerm Lua",
+    "icon": "icons/lang-357.svg"
+  },
+  {
+    "name": "Neovim Lua",
+    "icon": "icons/lang-358.svg"
+  },
+  {
+    "name": "Vimrc",
+    "icon": "icons/lang-359.svg"
+  },
+  {
+    "name": "Emacs Config",
+    "icon": "icons/lang-360.svg"
+  },
+  {
+    "name": "VS Code Settings",
+    "icon": "icons/lang-361.svg"
+  },
+  {
+    "name": "EditorConfig",
+    "icon": "icons/lang-362.svg"
+  },
+  {
+    "name": "Prettier Config",
+    "icon": "icons/lang-363.svg"
+  },
+  {
+    "name": "ESLint Config",
+    "icon": "icons/lang-364.svg"
+  },
+  {
+    "name": "Stylelint Config",
+    "icon": "icons/lang-365.svg"
+  },
+  {
+    "name": "Babel Config",
+    "icon": "icons/lang-366.svg"
+  },
+  {
+    "name": "Webpack Config",
+    "icon": "icons/lang-367.svg"
+  },
+  {
+    "name": "Vite Config",
+    "icon": "icons/lang-368.svg"
+  },
+  {
+    "name": "Rollup Config",
+    "icon": "icons/lang-369.svg"
+  },
+  {
+    "name": "Parcel Config",
+    "icon": "icons/lang-370.svg"
+  },
+  {
+    "name": "PostCSS Config",
+    "icon": "icons/lang-371.svg"
+  },
+  {
+    "name": "Tailwind Config",
+    "icon": "icons/lang-372.svg"
+  },
+  {
+    "name": "Next.js Config",
+    "icon": "icons/lang-373.svg"
+  },
+  {
+    "name": "Nuxt Config",
+    "icon": "icons/lang-374.svg"
+  },
+  {
+    "name": "Svelte Config",
+    "icon": "icons/lang-375.svg"
+  },
+  {
+    "name": "Astro Config",
+    "icon": "icons/lang-376.svg"
+  },
+  {
+    "name": "Angular Template",
+    "icon": "icons/lang-377.svg"
+  },
+  {
+    "name": "Angular Component",
+    "icon": "icons/lang-378.svg"
+  },
+  {
+    "name": "React Component",
+    "icon": "icons/lang-379.svg"
+  },
+  {
+    "name": "SolidJS",
+    "icon": "icons/lang-380.svg"
+  },
+  {
+    "name": "Qwik",
+    "icon": "icons/lang-381.svg"
+  },
+  {
+    "name": "Lit",
+    "icon": "icons/lang-382.svg"
+  },
+  {
+    "name": "Stencil",
+    "icon": "icons/lang-383.svg"
+  },
+  {
+    "name": "Web Components",
+    "icon": "icons/lang-384.svg"
+  },
+  {
+    "name": "WebGPU",
+    "icon": "icons/lang-385.svg"
+  },
+  {
+    "name": "WebGL",
+    "icon": "icons/lang-386.svg"
+  },
+  {
+    "name": "Three.js",
+    "icon": "icons/lang-387.svg"
+  },
+  {
+    "name": "Babylon.js",
+    "icon": "icons/lang-388.svg"
+  },
+  {
+    "name": "Deno",
+    "icon": "icons/lang-389.svg"
+  },
+  {
+    "name": "Bun",
+    "icon": "icons/lang-390.svg"
+  },
+  {
+    "name": "Node.js",
+    "icon": "icons/lang-391.svg"
+  },
+  {
+    "name": "Electron",
+    "icon": "icons/lang-392.svg"
+  },
+  {
+    "name": "Tauri",
+    "icon": "icons/lang-393.svg"
+  },
+  {
+    "name": "Flutter",
+    "icon": "icons/lang-394.svg"
+  },
+  {
+    "name": "React Native",
+    "icon": "icons/lang-395.svg"
+  },
+  {
+    "name": "Expo",
+    "icon": "icons/lang-396.svg"
+  },
+  {
+    "name": "Ionic",
+    "icon": "icons/lang-397.svg"
+  },
+  {
+    "name": "Capacitor",
+    "icon": "icons/lang-398.svg"
+  },
+  {
+    "name": "Cordova",
+    "icon": "icons/lang-399.svg"
+  },
+  {
+    "name": "NativeScript",
+    "icon": "icons/lang-400.svg"
+  },
+  {
+    "name": "Unity C#",
+    "icon": "icons/lang-401.svg"
+  },
+  {
+    "name": "Unreal C++",
+    "icon": "icons/lang-402.svg"
+  },
+  {
+    "name": "Bevy Rust",
+    "icon": "icons/lang-403.svg"
+  },
+  {
+    "name": "Raylib C",
+    "icon": "icons/lang-404.svg"
+  },
+  {
+    "name": "SDL C",
+    "icon": "icons/lang-405.svg"
+  },
+  {
+    "name": "SFML C++",
+    "icon": "icons/lang-406.svg"
+  },
+  {
+    "name": "Pygame",
+    "icon": "icons/lang-407.svg"
+  },
+  {
+    "name": "Love2D",
+    "icon": "icons/lang-408.svg"
+  },
+  {
+    "name": "Defold Lua",
+    "icon": "icons/lang-409.svg"
+  },
+  {
+    "name": "Cocos2d",
+    "icon": "icons/lang-410.svg"
+  },
+  {
+    "name": "MonoGame",
+    "icon": "icons/lang-411.svg"
+  },
+  {
+    "name": "LibGDX",
+    "icon": "icons/lang-412.svg"
+  },
+  {
+    "name": "Phaser",
+    "icon": "icons/lang-413.svg"
+  },
+  {
+    "name": "PixiJS",
+    "icon": "icons/lang-414.svg"
+  },
+  {
+    "name": "Construct",
+    "icon": "icons/lang-415.svg"
+  },
+  {
+    "name": "GameMaker",
+    "icon": "icons/lang-416.svg"
+  },
+  {
+    "name": "RPG Maker",
+    "icon": "icons/lang-417.svg"
+  },
+  {
+    "name": "TIC-80",
+    "icon": "icons/lang-418.svg"
+  },
+  {
+    "name": "PICO-8",
+    "icon": "icons/lang-419.svg"
+  },
+  {
+    "name": "Fantasy Console",
+    "icon": "icons/lang-420.svg"
+  },
+  {
+    "name": "Minecraft Datapack",
+    "icon": "icons/lang-421.svg"
+  },
+  {
+    "name": "Minecraft Function",
+    "icon": "icons/lang-422.svg"
+  },
+  {
+    "name": "Minecraft JSON",
+    "icon": "icons/lang-423.svg"
+  },
+  {
+    "name": "Minecraft Shader",
+    "icon": "icons/lang-424.svg"
+  },
+  {
+    "name": "Roblox Lua",
+    "icon": "icons/lang-425.svg"
+  },
+  {
+    "name": "Roblox Luau",
+    "icon": "icons/lang-426.svg"
+  },
+  {
+    "name": "Discord Bot",
+    "icon": "icons/lang-427.svg"
+  },
+  {
+    "name": "Telegram Bot",
+    "icon": "icons/lang-428.svg"
+  },
+  {
+    "name": "Slack Bot",
+    "icon": "icons/lang-429.svg"
+  },
+  {
+    "name": "Twitch Bot",
+    "icon": "icons/lang-430.svg"
+  },
+  {
+    "name": "IRC Script",
+    "icon": "icons/lang-431.svg"
+  },
+  {
+    "name": "HTTP",
+    "icon": "icons/lang-432.svg"
+  },
+  {
+    "name": "REST",
+    "icon": "icons/lang-433.svg"
+  },
+  {
+    "name": "gRPC",
+    "icon": "icons/lang-434.svg"
+  },
+  {
+    "name": "WebSocket",
+    "icon": "icons/lang-435.svg"
+  },
+  {
+    "name": "MQTT",
+    "icon": "icons/lang-436.svg"
+  },
+  {
+    "name": "AMQP",
+    "icon": "icons/lang-437.svg"
+  },
+  {
+    "name": "Redis CLI",
+    "icon": "icons/lang-438.svg"
+  },
+  {
+    "name": "MongoDB Query",
+    "icon": "icons/lang-439.svg"
+  },
+  {
+    "name": "Elasticsearch DSL",
+    "icon": "icons/lang-440.svg"
+  },
+  {
+    "name": "Lucene Query",
+    "icon": "icons/lang-441.svg"
+  },
+  {
+    "name": "SPARQL",
+    "icon": "icons/lang-442.svg"
+  },
+  {
+    "name": "Cypher",
+    "icon": "icons/lang-443.svg"
+  },
+  {
+    "name": "Gremlin",
+    "icon": "icons/lang-444.svg"
+  },
+  {
+    "name": "InfluxQL",
+    "icon": "icons/lang-445.svg"
+  },
+  {
+    "name": "Flux",
+    "icon": "icons/lang-446.svg"
+  },
+  {
+    "name": "PromQL",
+    "icon": "icons/lang-447.svg"
+  },
+  {
+    "name": "LogQL",
+    "icon": "icons/lang-448.svg"
+  },
+  {
+    "name": "KQL",
+    "icon": "icons/lang-449.svg"
+  },
+  {
+    "name": "DAX",
+    "icon": "icons/lang-450.svg"
+  },
+  {
+    "name": "MDX",
+    "icon": "icons/lang-451.svg"
+  },
+  {
+    "name": "Power Query M",
+    "icon": "icons/lang-452.svg"
+  },
+  {
+    "name": "Power Fx",
+    "icon": "icons/lang-453.svg"
+  },
+  {
+    "name": "MQL4",
+    "icon": "icons/lang-454.svg"
+  },
+  {
+    "name": "MQL5",
+    "icon": "icons/lang-455.svg"
+  },
+  {
+    "name": "Pine Script",
+    "icon": "icons/lang-456.svg"
+  },
+  {
+    "name": "EasyLanguage",
+    "icon": "icons/lang-457.svg"
+  },
+  {
+    "name": "ThinkScript",
+    "icon": "icons/lang-458.svg"
+  },
+  {
+    "name": "NinjaScript",
+    "icon": "icons/lang-459.svg"
+  },
+  {
+    "name": "AFL",
+    "icon": "icons/lang-460.svg"
+  },
+  {
+    "name": "TradeStation",
+    "icon": "icons/lang-461.svg"
+  },
+  {
+    "name": "OpenFormula",
+    "icon": "icons/lang-462.svg"
+  },
+  {
+    "name": "Excel Formula",
+    "icon": "icons/lang-463.svg"
+  },
+  {
+    "name": "Google Sheets Formula",
+    "icon": "icons/lang-464.svg"
+  },
+  {
+    "name": "LibreOffice Basic",
+    "icon": "icons/lang-465.svg"
+  },
+  {
+    "name": "Gnumeric",
+    "icon": "icons/lang-466.svg"
+  },
+  {
+    "name": "GAP",
+    "icon": "icons/lang-467.svg"
+  },
+  {
+    "name": "Magma",
+    "icon": "icons/lang-468.svg"
+  },
+  {
+    "name": "SageMath",
+    "icon": "icons/lang-469.svg"
+  },
+  {
+    "name": "Maple",
+    "icon": "icons/lang-470.svg"
+  },
+  {
+    "name": "Maxima",
+    "icon": "icons/lang-471.svg"
+  },
+  {
+    "name": "Gnuplot",
+    "icon": "icons/lang-472.svg"
+  },
+  {
+    "name": "Grace",
+    "icon": "icons/lang-473.svg"
+  },
+  {
+    "name": "ROOT C++",
+    "icon": "icons/lang-474.svg"
+  },
+  {
+    "name": "Geant4",
+    "icon": "icons/lang-475.svg"
+  },
+  {
+    "name": "OpenFOAM",
+    "icon": "icons/lang-476.svg"
+  },
+  {
+    "name": "LAMMPS",
+    "icon": "icons/lang-477.svg"
+  },
+  {
+    "name": "GROMACS",
+    "icon": "icons/lang-478.svg"
+  },
+  {
+    "name": "VASP INCAR",
+    "icon": "icons/lang-479.svg"
+  },
+  {
+    "name": "Quantum ESPRESSO",
+    "icon": "icons/lang-480.svg"
+  },
+  {
+    "name": "Gaussian Input",
+    "icon": "icons/lang-481.svg"
+  },
+  {
+    "name": "ORCA Input",
+    "icon": "icons/lang-482.svg"
+  },
+  {
+    "name": "NWChem",
+    "icon": "icons/lang-483.svg"
+  },
+  {
+    "name": "CP2K",
+    "icon": "icons/lang-484.svg"
+  },
+  {
+    "name": "LAMMPS Input",
+    "icon": "icons/lang-485.svg"
+  },
+  {
+    "name": "LAMMPS Data",
+    "icon": "icons/lang-486.svg"
+  },
+  {
+    "name": "LAMMPS Dump",
+    "icon": "icons/lang-487.svg"
+  },
+  {
+    "name": "XYZ Molecule",
+    "icon": "icons/lang-488.svg"
+  },
+  {
+    "name": "PDB",
+    "icon": "icons/lang-489.svg"
+  },
+  {
+    "name": "CIF",
+    "icon": "icons/lang-490.svg"
+  },
+  {
+    "name": "SMILES",
+    "icon": "icons/lang-491.svg"
+  },
+  {
+    "name": "FASTA",
+    "icon": "icons/lang-492.svg"
+  },
+  {
+    "name": "FASTQ",
+    "icon": "icons/lang-493.svg"
+  },
+  {
+    "name": "VCF",
+    "icon": "icons/lang-494.svg"
+  },
+  {
+    "name": "GFF",
+    "icon": "icons/lang-495.svg"
+  },
+  {
+    "name": "BED",
+    "icon": "icons/lang-496.svg"
+  },
+  {
+    "name": "SAM",
+    "icon": "icons/lang-497.svg"
+  },
+  {
+    "name": "BAM Header",
+    "icon": "icons/lang-498.svg"
+  },
+  {
+    "name": "Newick",
+    "icon": "icons/lang-499.svg"
+  },
+  {
+    "name": "Nexus",
+    "icon": "icons/lang-500.svg"
+  }
+]

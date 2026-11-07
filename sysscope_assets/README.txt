@@ -1,0 +1,1 @@
+SysScope IDE assets: 500 generated language/format badges and language manifest. Badges are generic monogram icons, not official language logos. Syntax highlighting uses GtkSourceView installed language definitions, not all 500 profiles.
